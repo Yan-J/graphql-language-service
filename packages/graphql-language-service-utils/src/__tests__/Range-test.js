@@ -5,7 +5,7 @@ import {Range, Position, offsetToPosition, locToRange} from '../Range';
 const text = `query test {
   name
 }`;
-const absRange = {start: 15, end: 18};//position of 'name' attribute in the test query
+const absRange = {start: 15, end: 18}; //position of 'name' attribute in the test query
 const offsetRangeStart = new Position(1, 2);
 const offsetRangeEnd = new Position(1, 5);
 
@@ -48,16 +48,26 @@ describe('class Range', () => {
 
 describe('offsetToPosition', () => {
   it('gets offset to position', () => {
-    expect(offsetToPosition(text, absRange.start).character).to.equal(offsetRangeStart.character);
-    expect(offsetToPosition(text, absRange.start).line).to.equal(offsetRangeStart.line);
+    expect(offsetToPosition(text, absRange.start).character).to.equal(
+      offsetRangeStart.character,
+    );
+    expect(offsetToPosition(text, absRange.start).line).to.equal(
+      offsetRangeStart.line,
+    );
   });
 });
 
 describe('locToRange', () => {
   it('gets location to range', () => {
-    expect(locToRange(text, absRange).start.character).to.equal(offsetRangeStart.character);
-    expect(locToRange(text, absRange).start.line).to.equal(offsetRangeStart.line);
-    expect(locToRange(text, absRange).end.character).to.equal(offsetRangeEnd.character);
+    expect(locToRange(text, absRange).start.character).to.equal(
+      offsetRangeStart.character,
+    );
+    expect(locToRange(text, absRange).start.line).to.equal(
+      offsetRangeStart.line,
+    );
+    expect(locToRange(text, absRange).end.character).to.equal(
+      offsetRangeEnd.character,
+    );
     expect(locToRange(text, absRange).end.line).to.equal(offsetRangeEnd.line);
   });
 });
